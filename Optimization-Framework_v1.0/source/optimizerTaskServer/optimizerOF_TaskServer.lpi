@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="9"/>
+    <General>
+      <Flags>
+        <MainUnitHasCreateFormStatements Value="False"/>
+        <MainUnitHasTitleStatement Value="False"/>
+      </Flags>
+      <SessionStorage Value="InProjectDir"/>
+      <MainUnit Value="0"/>
+      <Title Value="optimizerOF_TaskServer"/>
+      <UseAppBundle Value="False"/>
+      <ResourceType Value="res"/>
+    </General>
+    <i18n>
+      <EnableI18N LFM="False"/>
+    </i18n>
+    <VersionInfo>
+      <StringTable ProductVersion=""/>
+    </VersionInfo>
+    <BuildModes Count="1">
+      <Item1 Name="Default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+      </local>
+    </RunParams>
+    <Units Count="9">
+      <Unit0>
+        <Filename Value="optimizerOF_TaskServer.lpr"/>
+        <IsPartOfProject Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="uclient.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uClient"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="uvirtualthread.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uVirtualThread"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="uclientbase.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uClientBase"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="uclienttask.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uClientTask"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="utaskmanager.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uTaskManager"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="udatabase.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="uhttp_utils.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="utaskmanagertable.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uTaskManagerTable"/>
+      </Unit8>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <Target>
+      <Filename Value="../../bin/optimizerOF_TaskServer"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="synapse/source/lib;../common"/>
+      <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <CodeGeneration>
+      <Optimizations>
+        <OptimizationLevel Value="0"/>
+      </Optimizations>
+    </CodeGeneration>
+    <Other>
+      <CompilerMessages>
+        <IgnoredMessages idx5024="True"/>
+      </CompilerMessages>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

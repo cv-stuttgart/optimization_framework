@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>
+Computer Vision and Intelligent Systems, University of Stuttgart
+</title>
+</head>
+
+<body text="#000000" bgcolor="#FFFFFF">
+
+<p>&nbsp;</p>
+<div class="textNormal" style="text-align: center; font-size: 18pt;">
+Explanation of sequence lists
+</div>
+<p>&nbsp;</p>
+
+<div class="grline">Explanation</div>
+<div  class="textNormal">
+The optimization framework tests your optical flow executable on benchmark data
+(e.g. Middlebury, KITTI 2012, KITTI 2015, MPI Sintel). Hence, for each parameter 
+optimization, we need a document that lists the respective image sequences with
+ground truth for the chosen benchmark. This task is fulfilled by image sequence
+lists. The contain for each image sequence:
+<ul>
+ <li>A common base path which is the root for image and ground truth files.
+ <li>A list of input image files.
+ <li>The reference frame stating the origin of the optical flow.
+ <li>A ground truth file.
+ <li>A weight stating the importance of the current image sequence in the 
+     computation of the (weighted) average error value (usually chosen to be 1).
+ <li>(optional) A list of supplementary files (e.g. edges for EpicFlow, matches for DeepFlow 
+     etc.)
+ <li>(optional) A tagging string which should be unique per sequence and can e.g. be used 
+     as template string <span class="cmdLine">__SEQ_INFO__</span> in the cmd line 
+     call of each evaluation. This may be helpful in order to write resulting flow 
+     fields to disk.<br>
+</ul>
+It is constructed as follows:<br><br>
+<div class="exampleFile">
+BASEPATH/;IMAGE1,IMAGE2,IMAGE3,...;REF_FRAME;GROUNDTRUTH;WEIGHT(;SUPPFILE1,SUPPFILE2,...;TAGGINGSTRING)<br>
+BASEPATH/;IMAGE1,IMAGE2,IMAGE3,...;REF_FRAME;GROUNDTRUTH;WEIGHT(;SUPPFILE1,SUPPFILE2,...;TAGGINGSTRING)<br>
+...
+</div>
+</div><br>
+
+<div class="grline">Example</div>
+<div  class="textNormal">
+For the Middlebury training dataset, the file may look as follows:<br><br>
+<div class="exampleFile">
+RubberWhale/;frame10.png,frame11.png;0;flow10.flo;1.0;;RubberWhale
+Hydrangea/;frame10.png,frame11.png;0;flow10.flo;1.0;;Hydrangea
+Grove2/;frame10.png,frame11.png;0;flow10.flo;1.0;;Grove2
+Grove3/;frame10.png,frame11.png;0;flow10.flo;1.0;;Grove3
+Urban2/;frame10.png,frame11.png;0;flow10.flo;1.0;;Urban2
+Urban3/;frame10.png,frame11.png;0;flow10.flo;1.0;;Urban3
+Venus/;frame10.png,frame11.png;0;flow10.flo;1.0;;Venus
+Dimetrodon/;frame10.png,frame11.png;0;flow10.flo;1.0;;Dimetrodon
+</div>
+</div><br>
+
+</body>
+</html>

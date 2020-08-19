@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>
+Computer Vision and Intelligent Systems, University of Stuttgart
+</title>
+</head>
+
+<body text="#000000" bgcolor="#FFFFFF">
+
+<p>&nbsp;</p>
+<div class="textNormal" style="text-align: center; font-size: 18pt;">
+Definition of parameters
+</div>
+<p>&nbsp;</p>
+
+<div class="grline">Explanation</div>
+<div  class="textNormal">
+Each parameter of the optical flow method that is supposed to be optimized, is
+defined via the command line parameter <span class="cmdLineParam">-p</span>
+of the optimizer. It consists of 5 parts separated by semicolons:
+<ol>
+ <li>The name of parameter. Remark: A semicolon is not allowed as part of the name.
+ <li>1 or 0, indicating whether this parameter is a model or a solver parameter.
+ <li>1 or 0, indicating whether the initial values (see below) form a conclusive
+     enumeration).
+ <li>The type of parameter. This can be <em>string</em>, <em>int</em>, <em>float</em>, 
+     <em>floatNN</em> or <em>floatP</em>, where
+     <em>floatP</em> and <em>floatNN</em> denote real values that shall be positive 
+     or at least non-negative, respectively.
+ <li>A comma-separated list of values in order to initialize the chosen parameter 
+     selection strategy. The meaning of these values depends on the strategy.<br>
+     For most strategies, a lower initial value followed by an upper initial value
+     are required in order to define an interval. For the logarithmic cascadic
+     strategy, additionally a logarithmic base is required. For CMA-ES only one
+     value is required as it does not operate on intervals.
+</ol>
+Parameters of type string should be defined as enumerations.
+</div><br>
+
+<div class="grline">Examples</div>
+<div  class="textNormal">
+<ul>
+ <li>A weighting parameter (e.g. for a smoothness term) usually belongs to the model,
+     takes a positive real value and shall be varied continuously during the optimization
+     by the Downhill Simplex algorithm.
+     <div class="exampleCall">
+-p="alpha;1;0;floatP;1,100"
+     </div>
+     Here, it is called <em>alpha</em>, it is a model parameter, its values are not given 
+     by an enumeration, it shall be a positive floating point number and its initial interval
+     ranges from 1 to 100.<br><br>
+ <li>The same parameter, but this time logarithmic cascadic parameter selection is used for 
+     optimization.
+     <div class="exampleCall">
+-p="alpha;1;0;floatP;1,100,10"
+     </div>
+     Now, we additionally add 10 as the basis for the logarithms.<br><br>
+ <li>The same parameter, but this time CMA-ES is used for optimization.
+     <div class="exampleCall">
+-p="alpha;1;0;floatP;30"
+     </div>
+     Instead of providing an initial interval, we only provide an initial value 30.<br><br>
+  <li>If we want to test different options of our algorithm which are determined via an
+      integer parameter and are only interested in the best result among those choice,
+      we define an integer enumeration.
+     <div class="exampleCall">
+-p="optionNo;1;1;int;1,2,3,5"
+     </div>
+     Here, it is called <em>optionNo</em>, it is a model parameter, the given values constitute
+     a conclusive enumeration, it is of integer type and it shall be tested with the values
+     1, 2, 3, and 5.
+</ul>
+</div><br>
+
+
+</body>
+</html>
+

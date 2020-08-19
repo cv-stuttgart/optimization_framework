@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>
+Computer Vision and Intelligent Systems, University of Stuttgart
+</title>
+</head>
+
+<body text="#000000" bgcolor="#FFFFFF">
+
+<p>&nbsp;</p>
+<div class="textNormal" style="text-align: center; font-size: 18pt;">
+Here we provide some remarks, FAQs, known bugs etc.
+</div>
+<p>&nbsp;</p>
+
+<div class="grline">General</div>
+<div class="textNormal">
+<ul>
+ <li>The optimization framework has been tested and developed under Linux. Most of the code, however, is platform-independent. If you want to use it under
+     Windows, the HTTP connections of the client must be established in a different way than using <span class="cmdLine">wget</span> (e.g. by using the
+     Synapse package in order to implement an HTTP client) and maybe some minor adaptations have to be done.
+</ul>
+</div><br>
+
+<div class="grline">Optimizer</div>
+<div class="textNormal">
+<ul>
+ <li>When implementing a new parameter selection algorithm, one might think about an appropriate stage of the algorithm after
+     that a determination of a subset of the benchmark data is possible and which adaptations of the internal state of
+     that algorithm are necessary.<br>
+     Let us consider the downhill simplex algorithm as an example:
+     After the initial computation of the simplex, the subset can be determined at hand of the variances of the error values
+     at its vertices. Afterwards the internal list of the best results must be updated according to the new average error
+     values of the remaining image sequences.
+ <li>There is also a variant of the standalone optimizer for stereo-related tasks (e.g. disparity estimation, scene flow, 
+     shape from shading) called 
+     <span class="toolname">optimizerST</span>. The difference to <span class="toolname">optimizerOF</span> can be found
+     in an extended variant of the image sequence lists which provide a column (after the image filenames) for stating 
+     files that contain the camera parameters. The corresponding interfaces to the respective executables can be found
+     in <span class="cmdLine">problemTypes/ptStereo/ebInterfaces</span>.<br>
+     As both variants share most of the source code which contains compiler switches (indicating whether the optical flow
+     or the stereo classes shall be instantiated), it is necessary to make a clean build when switching between both
+     respective Lazarus projects. Otherwise, the units with those compiler switches would be considered as unchanged and not
+     re-compiled with the appropriate compiler switch.
+</ul>
+</div><br>
+
+<div class="grline">Client</div>
+<div class="textNormal">
+<ul>
+ <li>The HTTP communication with <span class="toolname">optimizerOF_TaskServer</span> relies on the Linux tool <span class="cmdLine">wget</span>.
+ <li>Failures in the evaluation may have two reasons: On the one hand, a single computation just fails (e.g., due to bad parameters),
+     on the other hand, a general error (e.g., a missing library) happens indicating that the current client is not able to
+     successfully evaluate any task at all. In case the latter happens, the client should be taken out of action in order to not
+     disturb the optimization as a whole. The class method <span class="sourceCode">executeProcess</span> of the estimation binary classes contains an output
+     parameter <span class="sourceCode">systemError</span> which should be set to true if such an error is detected. The evaluation thread will then terminate.
+</ul>
+</div><br>
+
+<div class="grline">Distributed Optimizer</div>
+<div class="textNormal">
+<ul>
+ <li>When sending SIGTERM to the distributed optimizer (Ctrl+C), it deletes its tasks from the database.
+ <li>Known bug: this deletion sometimes leads to a deadlock which makes it necessary to kill the distributed optimizer.
+</ul>
+</div><br>
+
+<div class="grline">Task Server</div>
+<div class="textNormal">
+ <ul>
+  <li>The availability of each client is determined by Ping-HTTP-requests. Two minutes after the last such ping a client will
+      be considered inactive and excluded from distribution.
+  <li>After three failed evaluations of a task, this task will be marked as unsuccessful and the distributed optimizer assigns it an infinite
+      error value.
+  <li>The Minimal Completion Time algorithm is only useful if the number of remaining evaluation tasks is sufficiently low. 
+      The threshold depends amongst others on the number of threads, the performance ratios of the clients. Above this threshold,
+      each client that asks for an evaluation task is assigned one as there is enough work to do for all clients. 
+      For this reason, only a limited amount of tasks is actually  fetched from the database and distributed. All tasks above this 
+      limit do not need to be distributed, yet, but can be considered at later times. Hence, only a limited amount of tasks
+      is visible on the HTTP status page of the TaskServer.
+  <li>After each pass of the deadline for an evaluation task, its deadline is increased by 5 Minutes for robustness reasons.
+  <li>There can be separate clusters of clients, each identified by a separate combination of username and taskname (which can
+      be given as parameters to the distributed optimizer and the clients). Within each cluster, each optimization (sharing the clients in 
+      this cluster) is identified by an automatically determined optimziation ID. For each optimization, a separate set of
+      performance statistics is maintained.
+  <li>There are automatic "clean up" operations implemented. These include the deletion of old tasks that 
+      are orphans of earlier optimizations as well as the deletion of performance statistics of optimizations where no tasks
+      exist anymore. The thresholds that steer these "clean up" operations are still not perfect, yet. In case of problems,
+      the thresholds may be adapted.<br>
+      Making these operations more robust is ongoing work.
+ </ul>
+</div>
+
+</body>
+</html>
+

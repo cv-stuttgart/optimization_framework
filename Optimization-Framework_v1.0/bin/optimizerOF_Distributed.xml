@@ -1,0 +1,9 @@
+<settings>
+ <DB>
+  <host>127.0.0.1</host>
+  <port>5432</port>
+  <user>USERNAME</user>
+  <password>PASSWORD</password>
+  <dbname>DATABASENAME</dbname>
+ </DB>
+</settings>

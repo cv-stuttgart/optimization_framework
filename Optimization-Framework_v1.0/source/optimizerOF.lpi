@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="9"/>
+    <General>
+      <Flags>
+        <MainUnitHasCreateFormStatements Value="False"/>
+        <MainUnitHasTitleStatement Value="False"/>
+      </Flags>
+      <SessionStorage Value="InProjectDir"/>
+      <MainUnit Value="0"/>
+      <Title Value="optimizerOF"/>
+      <UseAppBundle Value="False"/>
+      <ResourceType Value="res"/>
+    </General>
+    <i18n>
+      <EnableI18N LFM="False"/>
+    </i18n>
+    <VersionInfo>
+      <StringTable ProductVersion=""/>
+    </VersionInfo>
+    <MacroValues Count="1">
+      <Macro1 Name="LCLWidgetType" Value="nogui"/>
+    </MacroValues>
+    <BuildModes Count="1">
+      <Item1 Name="Default" Default="True"/>
+      <SharedMatrixOptions Count="1">
+        <Item1 ID="311561053573" Modes="Default" Type="IDEMacro" MacroName="LCLWidgetType" Value="nogui"/>
+      </SharedMatrixOptions>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+      <IncludeFileFilter Value="*.(pas|pp|inc|lfm|lpr|lrs|lpi|lpk|sh|xml)"/>
+      <ExcludeFileFilter Value="*.(bak|ppu|o|so);*~;backup"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="1">
+      <Item1>
+        <PackageName Value="LCL"/>
+      </Item1>
+    </RequiredPackages>
+    <Units Count="22">
+      <Unit0>
+        <Filename Value="optimizerOF.lpr"/>
+        <IsPartOfProject Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="utestcases.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uTestcases"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="uoptimizationprocess.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uOptimizationProcess"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="uparameterselection.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uParameterSelection"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="usimplelog.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="uhelper.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="umain.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="umath.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uMath"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="psStrategies/ups_downhillsimplex.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ups_DownhillSimplex"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="psStrategies/ups_equidistant.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="psStrategies/ups_equidistantcascadic.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ups_equidistantCascadic"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="udatatypesoptimizer.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="udatatypesOptimizer"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="psStrategies/ups_evaluatefirstvalue.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ups_evaluateFirstValue"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="psStrategies/ups_cmaes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ups_CMAeS"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="psStrategies/ups_logarithmiccascadic.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="uevaluationbinary.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uEvaluationBinary"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="ebInterfaces/uebstoll.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uebStoll"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="ebInterfaces/uebmaurersfs.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="psStrategies/ups_evaluatefromlog.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ups_evaluateFromLog"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="psStrategies/ups_logarithmiccmaes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uPS_LogarithmicCMAeS"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="ebInterfaces/uebstollst.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uebStollST"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="problemTypes/ptOpticalFlow/udatatypesof.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uDatatypesOF"/>
+      </Unit21>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <Target>
+      <Filename Value="../bin/optimizerOF"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="common;psStrategies;problemTypes/ptOpticalFlow;problemTypes/ptOpticalFlow/ebInterfaces"/>
+      <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <CodeGeneration>
+      <Checks>
+        <RangeChecks Value="True"/>
+        <OverflowChecks Value="True"/>
+      </Checks>
+    </CodeGeneration>
+    <Other>
+      <CompilerMessages>
+        <IgnoredMessages idx5024="True"/>
+      </CompilerMessages>
+      <CustomOptions Value="-dOpticalFlow"/>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

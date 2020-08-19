@@ -1,0 +1,8 @@
+<settings>
+ <server>
+  <fetchURL>http://HOSTNAME:8083/getTask</fetchURL>
+  <pingURL>http://HOSTNAME:8083/ping</pingURL>
+  <submitURL>http://HOSTNAME:8083/submitResult</submitURL>
+  <rejectURL>http://HOSTNAME:8083/</rejectURL>
+ </server>
+</settings>

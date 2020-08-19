@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>
+Computer Vision and Intelligent Systems, University of Stuttgart
+</title>
+</head>
+
+<body text="#000000" bgcolor="#FFFFFF">
+
+<p>&nbsp;</p>
+<div class="textNormal" style="text-align: center; font-size: 18pt;">
+Status page of <span class="toolname">optimizerOF_TaskServer</span>
+</div>
+<p>&nbsp;</p>
+
+<div class="grline">Explanation</div>
+<div  class="textNormal">
+<span class="toolname">optimizerOF_TaskServer</span> provides a status page displaying
+different important information about the current optimizations. In particular, it 
+gives an overview about the clients that evaluate tasks for an optimization process,
+their current performance and how the tasks are distributed amongst them.<br><br>
+<ul>
+ <li>For each client, first of all, the name and IP address of the host computer, its 
+     process ID and the number are provided. 
+ <li>Then there is a button "STOP Distribution" which is useful to exclude
+     the client from further distribution. After having completed the tasks it is currently 
+     responsible for, it will not obtain further tasks. This is helpful e.g. in order to 
+     restart the client. After the client has been excluded from further distributions, 
+     it will be displayed using red fonts and with the annotation "Ignored Host". 
+     The exclusion can be revoked by clicking on "Resume Distribution".
+ <li>Below (in the red box), there is information about the performance of the client:
+   <ul>
+     <li>The minimum of all average run times <b>t<sub>avg,min</sub></b>.
+     <li>The time since the last acquisition or submission of a task <b>t<sub>busy</sub></b>.
+     <li>The minimum of all expected current run times <b>t<sub>eff,min</sub></b> which
+         depends on <b>t<sub>avg,min</sub></b> and <b>t<sub>busy</sub></b>.
+     <li>The expected current completion time <b>t<sub>finish</sub></b> (maximum over all
+         threads).
+     <li>The time since the last keep-alive signal of the client <b>t<sub>silence</sub></b>
+         that is sent periodically in order to indicate that the client is still running.
+     <li>For each optimization (indicated by the <em>optimization ID</em>), its average
+         run time <b>t<sub>avg</sub></b> is displayed.
+   </ul>
+ <li>For each thread, a list of assigned tasks accompagnied by the (remaining) expected 
+     run time is provided. The first task is red if it is currently computed by the client.
+     At the beginning of each row, the start time of the first task <em>A</em>, 
+     the expected completion time of all assigned tasks <em>B</em> and the total expected 
+     computation time <em>C</em> are given in the form <b>(A - B - C):".
+</ul>
+</div><br>
+
+<div class="grline">Example</div>
+<div align="center">
+ <img src="images/Server.png" />
+</div>
+
+</body>
+</html>
+
